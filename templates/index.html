@@ -1,32 +1,33 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="./static/mywebscript.js"></script>
-    <style>
-        .center-heading {
-            text-align: center;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emotion Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='mywebscript.js') }}" defer></script>
 </head>
 <body>
-    <div class="card">
-        <div class="card-body">
-            <h1 class="center-heading">NLP - Emotion Detection</h1> 
-            <div style="padding: 25px 25px 25px 25px;">
-            <h2 class="mb-3">
-                <label class="form-label">Please enter the text to be analyzed</label>
-                <input type="textarea" class="form-control" id="textToAnalyze">
-            </h2>
+    <main class="page-shell">
+        <section class="detector-card" aria-labelledby="page-title">
+            <p class="eyebrow">Watson NLP · English</p>
+            <h1 id="page-title">Emotion Detection</h1>
+            <p class="intro">See the emotions expressed in a sentence.</p>
 
-            <div style="padding: 25px 25px 25px 25px;">
-                <button onclick="RunSentimentAnalysis()" class="btn btn-secondary">Run Sentiment Analysis</button>
-            </div>
-            <div style="padding: 25px 25px 25px 25px;"></div>
-            <h2 class="mb-3">
-                <label class="form-label">Result of Emotion Detection</label>
-            </h2>
+            <form id="emotion-form">
+                <label for="textToAnalyze">Your text</label>
+                <textarea id="textToAnalyze" name="textToAnalyze" rows="5"
+                          maxlength="1000" placeholder="Type a sentence to analyze..."
+                          required></textarea>
+                <button type="submit">Analyze text</button>
+            </form>
 
-            <div id="system_response" style="padding: 25px 25px 25px 25px;"></div>
-        </div>
-    </div>
+            <section class="result-panel" aria-labelledby="result-title">
+                <h2 id="result-title">Analysis result</h2>
+                <p id="system_response" aria-live="polite">Your result will appear here.</p>
+            </section>
+        </section>
+        <p class="page-note">Emotion predictions are estimates based on the submitted text.</p>
+    </main>
 </body>
+</html>

@@ -1,12 +1,28 @@
-let RunSentimentAnalysis = ()=>{
-    textToAnalyze = document.getElementById("textToAnalyze").value;
+const form = document.getElementById("emotion-form");
+const textInput = document.getElementById("textToAnalyze");
+const result = document.getElementById("system_response");
 
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("system_response").innerHTML = xhttp.responseText;
-        }
-    };
-    xhttp.open("GET", "emotionDetector?textToAnalyze"+"="+textToAnalyze, true);
-    xhttp.send();
-}
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const text = textInput.value.trim();
+
+    if (!text) {
+        result.textContent = "Please enter text to analyze.";
+        result.classList.add("error");
+        textInput.focus();
+        return;
+    }
+
+    result.textContent = "Analyzing your text...";
+    result.classList.remove("error");
+
+    try {
+        const query = new URLSearchParams({ textToAnalyze: text });
+        const response = await fetch(`/emotionDetector?${query}`);
+        result.textContent = await response.text();
+        result.classList.toggle("error", !response.ok);
+    } catch {
+        result.textContent = "The emotion service is temporarily unavailable.";
+        result.classList.add("error");
+    }
+});
