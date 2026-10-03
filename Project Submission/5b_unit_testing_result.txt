@@ -1,0 +1,18 @@
+PS> .venv\Scripts\python.exe -m unittest discover -v
+test_course_examples (test_emotion_detection.EmotionDetectorTests.test_course_examples)
+Check all five emotions. ... ok
+test_returns_none_for_bad_request (test_emotion_detection.EmotionDetectorTests.test_returns_none_for_bad_request)
+Handle HTTP 400. ... ok
+test_blank_text_returns_error (test_emotion_detection.EmotionRouteTests.test_blank_text_returns_error)
+Reject blank text. ... ok
+test_home_page_loads (test_emotion_detection.EmotionRouteTests.test_home_page_loads)
+Load the home page. ... ok
+test_route_formats_scores (test_emotion_detection.EmotionRouteTests.test_route_formats_scores)
+Format all scores. ... ok
+test_service_error_returns_message (test_emotion_detection.EmotionRouteTests.test_service_error_returns_message)
+Handle Watson errors. ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.972s
+
+OK

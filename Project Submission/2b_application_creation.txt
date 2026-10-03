@@ -1,0 +1,4 @@
+PS> .venv\Scripts\python.exe "Project Submission\raw_module_check.py"
+from emotion_detection import emotion_detector
+{'emotionPredictions': [{'emotion': {'anger': 0.9, 'disgust': 0.02, 'fear': 0.02, 'joy': 0.03, 'sadness': 0.03}}]}
+Note: Watson response mocked because the live endpoint timed out.

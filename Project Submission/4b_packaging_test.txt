@@ -1,0 +1,5 @@
+PS> .venv\Scripts\python.exe "Project Submission\package_check.py"
+from EmotionDetection.emotion_detection import emotion_detector
+{'anger': 0.9, 'disgust': 0.02, 'fear': 0.02, 'joy': 0.03, 'sadness': 0.03, 'dominant_emotion': 'anger'}
+EmotionDetection is a valid package
+Note: Watson response mocked because the live endpoint timed out.

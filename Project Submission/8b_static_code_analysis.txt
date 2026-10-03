@@ -1,0 +1,4 @@
+PS> .venv\Scripts\python.exe -m pylint server.py EmotionDetection test_emotion_detection.py
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
